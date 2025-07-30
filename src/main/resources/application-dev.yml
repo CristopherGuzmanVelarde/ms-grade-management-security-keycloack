@@ -14,20 +14,21 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          # URL del servidor Keycloak - CAMBIAR POR TU SERVIDOR KEYCLOAK
-          issuer-uri: http://localhost:8080/realms/your-realm-name
-          # Alternative configuration if issuer-uri doesn't work
-          # jwk-set-uri: http://localhost:8080/realms/your-realm-name/protocol/openid-connect/certs
+          # Configuración local de Keycloak para desarrollo
+          issuer-uri: http://localhost:8080/realms/grade-management
+          # Alternative configuration
+          # jwk-set-uri: http://localhost:8080/realms/grade-management/protocol/openid-connect/certs
 
-# Configuración del servidor
+# Configuración del servidor para desarrollo
 server:
   port: 8081
 
-# Logging configuration
+# Logging para desarrollo (más verbose)
 logging:
   level:
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
+    "[org.springframework.security]": DEBUG
+    "[org.springframework.security.oauth2]": DEBUG
+    "[pe.edu.vallegrande.vg_ms_grade_management]": DEBUG
 
 students:
   service:
